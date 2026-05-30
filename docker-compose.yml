@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  telegram-bot:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./.env:/app/.env
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - lmstudio
+
+  # Note: LM Studio doesn't have an official Docker image
+  # You'll need to run LM Studio locally or use Ollama instead
+  # Uncomment below if using Ollama:
+
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+  #   restart: unless-stopped
+
+# volumes:
+#   ollama_data:

@@ -1,0 +1,53 @@
+# Environment
+.env
+*.session
+*.session-journal
+
+# Data (contains personal messages, contacts, session files)
+data/
+
+# Logs
+logs/
+log
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Models and cache (heavy binary files)
+models/
+cache/
+\ cache/
+tmp/
+results/
+
+# Personal / sensitive files
+therapist_*.md
+session_log_*.md
+blacklist_instruction.pdf
+
+# Media files (downloaded audio/video)
+*.wav
+*.mp3
+*.ogg
+*.flac
+*.mp4
+*.webm
+
+# IDE
+.agent/
+.idea/
+.vscode/
+.trae/
+.windsurf/
+.cursorignore

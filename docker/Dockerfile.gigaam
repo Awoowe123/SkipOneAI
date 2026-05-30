@@ -1,0 +1,66 @@
+# Dockerfile for GigaAM-v3 Testing
+# Based on NVIDIA CUDA + PyTorch official images
+
+FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
+
+# Set environment variables
+ENV DEBIAN_FRONTEND=noninteractive \
+    PYTHONUNBUFFERED=1 \
+    CUDA_HOME=/usr/local/cuda
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3.11 \
+    python3.11-dev \
+    python3-pip \
+    ffmpeg \
+    git \
+    wget \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set python3.11 as default
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1 && \
+    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
+
+# Upgrade pip and install setuptools (required by GigaAM setup.py)
+RUN python -m pip install --upgrade pip setuptools wheel
+
+# Install PyTorch 2.8.0 + torchvision 0.23.0 (compatible versions)
+# Note: Installing without +cu121 suffix to avoid version conflicts
+RUN pip install --no-cache-dir \
+    torch==2.8.0 \
+    torchaudio==2.8.0 \
+    torchvision==0.23.0
+
+# Install GigaAM dependencies
+RUN pip install --no-cache-dir \
+    hydra-core==1.3.* \
+    numpy==2.* \
+    omegaconf==2.3.* \
+    onnx==1.19.* \
+    onnxruntime==1.23.* \
+    sentencepiece \
+    tqdm \
+    numba>=0.62
+
+# Install pyannote.audio (specific version for GigaAM longform)
+RUN pip install --no-cache-dir pyannote.audio==4.0
+
+# Install Silero VAD for lightweight speech detection
+RUN pip install --no-cache-dir silero-vad
+
+# Install Demucs v4 for vocal separation (music source separation)
+RUN pip install --no-cache-dir demucs
+
+# Install audio-separator (supports BS-Roformer, MDX23C, Kim_Vocal, etc.)
+RUN pip install --no-cache-dir audio-separator
+
+# Install GigaAM from GitHub
+RUN pip install --no-cache-dir git+https://github.com/salute-developers/GigaAM.git
+
+# Set working directory
+WORKDIR /workspace
+
+# Default command
+CMD ["python", "test_gigaam_docker.py"]

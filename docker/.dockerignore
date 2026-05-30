@@ -1,0 +1,21 @@
+# Docker build context optimization
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.git/
+.vscode/
+.idea/
+*.log
+node_modules/
+venv/
+.env
+*.swp
+*.swo
+*~

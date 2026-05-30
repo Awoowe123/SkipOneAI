@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  gigaam:
+    build:
+      context: .
+      dockerfile: Dockerfile.gigaam
+    image: gigaam-v3:latest
+    container_name: gigaam-test
+
+    # GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+    # Environment variables
+    environment:
+      - HF_TOKEN=${HF_TOKEN:-your_huggingface_token_here}
+      - CUDA_VISIBLE_DEVICES=0
+
+    # Volume mappings
+    volumes:
+      # Test scripts
+      - ./test_gigaam_docker.py:/workspace/test_gigaam_docker.py:ro
+      - ./test_gigaam_vad.py:/workspace/test_gigaam_vad.py:ro
+      - ./test_gigaam_silero.py:/workspace/test_gigaam_silero.py:ro
+      # Production scripts
+      - ./gigaam_production.py:/workspace/gigaam_production.py:ro
+      - ./gigaam_demucs.py:/workspace/gigaam_demucs.py:ro
+      - ./extract_vocals.py:/workspace/extract_vocals.py:ro
+      # Audio files (adjust path to your Downloads folder)
+      - ${AUDIO_PATH:-./audio}:/audio:ro
+      # Results output
+      - ../results:/workspace/results
+      # Persistent cache for models (to avoid re-downloading)
+      - ../cache/huggingface:/root/.cache/huggingface
+      - ../cache/torch:/root/.cache/torch
+      - ../cache/gigaam:/root/.cache/gigaam  # GigaAM models (429MB .ckpt + tokenizer)
+      - ../cache/torch_checkpoints:/root/.cache/torch/hub/checkpoints  # Demucs models (80MB x4)
+      - ../ cache/audio-separator:/root/.cache/audio-separator-models  # BS-Roformer, MDX23C (~650MB total)
+      # Torch hub cache (for Silero VAD)
+      # The previous line for torch cache is now covered by the "Persistent cache for models" comment.
+      # If a separate comment for Silero VAD is still desired, it should be added here.
+
+    # Working directory
+    working_dir: /workspace
+
+    # Command (can override via docker-compose run)
+    command: python gigaam_production.py /audio/Alex\ Masht\ -\ Свет.mp3
+
+    # Auto-remove container after exit
+    restart: "no"
