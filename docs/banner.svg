@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="340" viewBox="0 0 820 340">
+  <defs>
+    <filter id="pencil" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- Background — warm parchment -->
+  <rect width="820" height="340" rx="4" fill="#dcd8d0"/>
+
+  <!-- Rough border (sketch style) -->
+  <rect x="4" y="4" width="812" height="332" rx="3" fill="none" stroke="#1e1e1e" stroke-width="2.5" filter="url(#pencil)"/>
+
+  <!-- Inner decorative line -->
+  <rect x="12" y="12" width="796" height="316" rx="2" fill="none" stroke="#1e1e1e" stroke-width="0.8" stroke-dasharray="6 4" opacity="0.3"/>
+
+  <!-- Logo image -->
+  <image href="logo.jpg" x="28" y="16" width="52" height="52" preserveAspectRatio="xMidYMid slice" clip-path="inset(0 round 6px)"/>
+
+  <!-- Title -->
+  <text x="86" y="48" fill="#1e1e1e" font-family="'Comic Sans MS', 'Comic Neue', cursive" font-size="28" font-weight="bold">SkipOneAI</text>
+  <text x="86" y="70" fill="#c57e50" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="600">Автономный AI-агент для Telegram — цифровой двойник</text>
+
+  <!-- Decorative underline -->
+  <path d="M 28 82 Q 400 80 792 82" fill="none" stroke="#1e1e1e" stroke-width="1.5" opacity="0.4" filter="url(#pencil)"/>
+
+  <!-- Stats boxes -->
+  <!-- Tools -->
+  <g>
+    <rect x="28" y="96" width="180" height="60" rx="3" fill="#c57e50" fill-opacity="0.08" stroke="#c57e50" stroke-width="1.5" filter="url(#pencil)"/>
+    <text x="118" y="118" text-anchor="middle" fill="#a86134" font-family="'Inter', system-ui, sans-serif" font-size="10" letter-spacing="1.5" font-weight="600">ИНСТРУМЕНТЫ</text>
+    <text x="118" y="144" text-anchor="middle" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="28" font-weight="bold">9</text>
+  </g>
+
+  <!-- Engine -->
+  <g>
+    <rect x="222" y="96" width="180" height="60" rx="3" fill="#1e1e1e" fill-opacity="0.04" stroke="#1e1e1e" stroke-width="1.5" filter="url(#pencil)"/>
+    <text x="312" y="118" text-anchor="middle" fill="#7e7a72" font-family="'Inter', system-ui, sans-serif" font-size="10" letter-spacing="1.5" font-weight="600">ДВИЖОК</text>
+    <text x="312" y="144" text-anchor="middle" fill="#1e1e1e" font-family="'Comic Sans MS', cursive" font-size="22" font-weight="bold">Local LLM</text>
+  </g>
+
+  <!-- ASR -->
+  <g>
+    <rect x="416" y="96" width="180" height="60" rx="3" fill="#1e1e1e" fill-opacity="0.04" stroke="#1e1e1e" stroke-width="1.5" filter="url(#pencil)"/>
+    <text x="506" y="118" text-anchor="middle" fill="#7e7a72" font-family="'Inter', system-ui, sans-serif" font-size="10" letter-spacing="1.5" font-weight="600">ASR ДВИЖОК</text>
+    <text x="506" y="144" text-anchor="middle" fill="#1e1e1e" font-family="'Comic Sans MS', cursive" font-size="22" font-weight="bold">Multi-Model</text>
+  </g>
+
+  <!-- Privacy -->
+  <g>
+    <rect x="610" y="96" width="180" height="60" rx="3" fill="#c57e50" fill-opacity="0.08" stroke="#c57e50" stroke-width="1.5" filter="url(#pencil)"/>
+    <text x="700" y="118" text-anchor="middle" fill="#a86134" font-family="'Inter', system-ui, sans-serif" font-size="10" letter-spacing="1.5" font-weight="600">ПРИВАТНОСТЬ</text>
+    <text x="700" y="144" text-anchor="middle" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="22" font-weight="bold">100% Local</text>
+  </g>
+
+  <!-- Separator -->
+  <path d="M 28 172 Q 410 170 792 172" fill="none" stroke="#1e1e1e" stroke-width="1" opacity="0.3" filter="url(#pencil)"/>
+
+  <!-- Architecture label -->
+  <text x="40" y="196" fill="#7e7a72" font-family="'Inter', system-ui, sans-serif" font-size="10" letter-spacing="1.5" font-weight="600">АРХИТЕКТУРА:</text>
+
+  <!-- Architecture items row 1 -->
+  <text x="40" y="220" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="14" font-weight="bold">▸</text>
+  <text x="55" y="220" fill="#4e4a42" font-family="'Inter', system-ui, sans-serif" font-size="12">RAG-система имитации стиля</text>
+
+  <text x="300" y="220" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="14" font-weight="bold">▸</text>
+  <text x="315" y="220" fill="#4e4a42" font-family="'Inter', system-ui, sans-serif" font-size="12">LLM Router (мульти-модель)</text>
+
+  <text x="570" y="220" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="14" font-weight="bold">▸</text>
+  <text x="585" y="220" fill="#4e4a42" font-family="'Inter', system-ui, sans-serif" font-size="12">Master Classifier</text>
+
+  <!-- Architecture items row 2 -->
+  <text x="40" y="244" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="14" font-weight="bold">▸</text>
+  <text x="55" y="244" fill="#4e4a42" font-family="'Inter', system-ui, sans-serif" font-size="12">Human Simulator (задержки, опечатки)</text>
+
+  <text x="350" y="244" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="14" font-weight="bold">▸</text>
+  <text x="365" y="244" fill="#4e4a42" font-family="'Inter', system-ui, sans-serif" font-size="12">CRM контактов с auto-bio</text>
+
+  <text x="590" y="244" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="14" font-weight="bold">▸</text>
+  <text x="605" y="244" fill="#4e4a42" font-family="'Inter', system-ui, sans-serif" font-size="12">Vocal Extraction</text>
+
+  <!-- Bottom separator -->
+  <path d="M 28 260 Q 410 258 792 260" fill="none" stroke="#1e1e1e" stroke-width="1" opacity="0.3" filter="url(#pencil)"/>
+
+  <!-- Stack label -->
+  <text x="40" y="282" fill="#7e7a72" font-family="'Inter', system-ui, sans-serif" font-size="10" letter-spacing="1.5" font-weight="600">СТЕК:</text>
+
+  <text x="40" y="302" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="14" font-weight="bold">▸</text>
+  <text x="55" y="302" fill="#4e4a42" font-family="'Inter', system-ui, sans-serif" font-size="12">Python 3.10+</text>
+
+  <text x="170" y="302" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="14" font-weight="bold">▸</text>
+  <text x="185" y="302" fill="#4e4a42" font-family="'Inter', system-ui, sans-serif" font-size="12">Telethon</text>
+
+  <text x="280" y="302" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="14" font-weight="bold">▸</text>
+  <text x="295" y="302" fill="#4e4a42" font-family="'Inter', system-ui, sans-serif" font-size="12">LM Studio</text>
+
+  <text x="400" y="302" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="14" font-weight="bold">▸</text>
+  <text x="415" y="302" fill="#4e4a42" font-family="'Inter', system-ui, sans-serif" font-size="12">Faster Whisper</text>
+
+  <text x="545" y="302" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="14" font-weight="bold">▸</text>
+  <text x="560" y="302" fill="#4e4a42" font-family="'Inter', system-ui, sans-serif" font-size="12">CUDA / GPU</text>
+
+  <text x="670" y="302" fill="#c57e50" font-family="'Comic Sans MS', cursive" font-size="14" font-weight="bold">▸</text>
+  <text x="685" y="302" fill="#4e4a42" font-family="'Inter', system-ui, sans-serif" font-size="12">Docker</text>
+
+  <!-- Footer note -->
+  <text x="40" y="326" fill="#7e7a72" font-family="'Inter', system-ui, sans-serif" font-size="10">Все данные обрабатываются локально. Ничего не покидает вашу машину.</text>
+
+  <!-- Corner doodles -->
+  <path d="M 14,14 Q 14,8 20,8" fill="none" stroke="#c57e50" stroke-width="1.5" opacity="0.5"/>
+  <path d="M 806,14 Q 806,8 800,8" fill="none" stroke="#c57e50" stroke-width="1.5" opacity="0.5"/>
+  <path d="M 14,326 Q 14,332 20,332" fill="none" stroke="#c57e50" stroke-width="1.5" opacity="0.5"/>
+  <path d="M 806,326 Q 806,332 800,332" fill="none" stroke="#c57e50" stroke-width="1.5" opacity="0.5"/>
+</svg>

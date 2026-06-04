@@ -1,5 +1,6 @@
+
 <p align="center">
-  <img src="docs/logo.jpg" alt="SkipOneAI" />
+  <img src="docs/logo.jpg" alt="SkipOneAI" width="120" />
 </p>
 
 <h1 align="center">SkipOneAI</h1>
@@ -48,6 +49,12 @@ SkipOneAI — автономный Telegram-агент, работающий о�
 | **Извлечение вокала** | Docker: BS-Roformer, Demucs v4, MDX23C для отделения голоса от музыки |
 | **Контакты** | Автоанализ отношений через LLM. Bio-досье после 50+ сообщений |
 | **Контроль доступа** | Белый список контактов, привилегии владельца через `BOT_OWNER_ID` |
+
+---
+
+<p align="center">
+  <img src="docs/banner.svg" alt="SkipOneAI — Architecture Overview" width="100%" />
+</p>
 
 ---
 
