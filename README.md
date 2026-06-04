@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="docs/logo.jpg" alt="SkipOneAI" width="120" />
+  <img src="docs/logo.jpg" alt="SkipOneAI" width="1000" />
 </p>
 
 <h1 align="center">SkipOneAI</h1>
